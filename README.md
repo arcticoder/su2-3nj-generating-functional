@@ -1,8 +1,20 @@
 
 
 \begin{center}
-  {\LARGE **A Universal Generating Functional for SU(2) 3nj Symbols**}\![](https://latex.codecogs.com/svg.image?1em%5D%0A%20%20%2A%2AArcticoder%2A%2A%0A%5Cend%7Bcenter%7D%0A%0A%23%23%20Abstract%0AWe%20introduce%20a%20master%20generating%20functional%20for%20Wigner%203nj%20recoupling%20coefficients%20based%20on%0Aa%20Schwinger--boson%20Gaussian%20integral%20over%20spinors.%20For%20any%20trivalent%20coupling%20tree%20of%20SU%282%29%20spins%2C%0Athe%20generating%20function%20is%20given%20by%0A%5C%5B%0A%20%20G%28%5C%7Bx_e%5C%7D%29%0A%20%20%5C%3B%3D%5C%3B%5Cint%20%5Cprod_%7Bv%3D1%7D%5En%20%5Cfrac%7Bd%5E2w_v%7D%7B%5Cpi%7D%20%5C%2C%5Cexp%5Cbigl%28-%5Csum_%7Bv%7D%5ClVert%20w_v%5CrVert%5E2%5Cbigr%29%0A%20%20%5C%3B%5Cprod_%7Be%3D%5Clangle%20i%2Cj%5Crangle%7D%5Cexp%5Cbigl%28x_e%5C%2C%5Cepsilon%28w_i%2Cw_j%29%5Cbigr%29%0A%20%20%5C%3B%3D%5C%3B%5Cfrac%7B1%7D%7B%5Csqrt%7B%5Cdet%5C%21%5Cbigl%28I%20-%20K%28%5C%7Bx_e%5C%7D%29%5Cbigr%29%7D%7D%2C)
-where ![](https://latex.codecogs.com/svg.image?K) is the antisymmetric adjacency matrix of edge--variables ![](https://latex.codecogs.com/svg.image?x_e). Expanding in powers of ![](https://latex.codecogs.com/svg.image?x_e)
+  {\LARGE **A Universal Generating Functional for SU(2) 3nj Symbols**}\$$1em]
+  **Arcticoder**
+\end{center}
+
+## Abstract
+We introduce a master generating functional for Wigner 3nj recoupling coefficients based on
+a Schwinger--boson Gaussian integral over spinors. For any trivalent coupling tree of SU(2) spins,
+the generating function is given by
+\[
+  G(\{x_e\})
+  \;=\;\int \prod_{v=1}^n \frac{d^2w_v}{\pi} \,\exp\bigl(-\sum_{v}\lVert w_v\rVert^2\bigr)
+  \;\prod_{e=\langle i,j\rangle}\exp\bigl(x_e\,\epsilon(w_i,w_j)\bigr)
+  \;=\;\frac{1}{\sqrt{\det\!\bigl(I - K(\{x_e\})\bigr)}},$$
+where $K$ is the antisymmetric adjacency matrix of edge--variables $x_e$. Expanding in powers of $x_e$
 yields all 3nj coefficients. We demonstrate this construction explicitly for the 6-j, 9-j, and 15-j
 symbols, providing a unified analytic framework that generalizes classical Poisson--kernel expansions.
 
@@ -14,8 +26,8 @@ or hypergeometric functions on a case-by-case basis. We propose a single, univer
 that reproduces all 3nj symbols via a single determinant formula, offering a unified and compact analytic representation.
 
 ## Master Generating Functional
-Let a trivalent coupling tree have ![](https://latex.codecogs.com/svg.image?n) vertices and edges labeled by variables ![](https://latex.codecogs.com/svg.image?x_e).
-Associate to each vertex a Schwinger--boson spinor ![](https://latex.codecogs.com/svg.image?w_v%5Cin%5Cmathbb%7BC%7D%5E2) and consider the integral:
+Let a trivalent coupling tree have $n$ vertices and edges labeled by variables $x_e$.
+Associate to each vertex a Schwinger--boson spinor $w_v\in\mathbb{C}^2$ and consider the integral:
 \begin{equation}
   \boxed{
   G(\{x_e\})
@@ -25,12 +37,12 @@ Associate to each vertex a Schwinger--boson spinor ![](https://latex.codecogs.co
   = \frac{1}{\sqrt{\det\!\bigl(I - K(\{x_e\})\bigr)}}.
   }
 \end{equation}
-Here ![](https://latex.codecogs.com/svg.image?K_%7Bij%7D%3Dx_e) (up to sign) whenever ![](https://latex.codecogs.com/svg.image?e) joins vertices ![](https://latex.codecogs.com/svg.image?i%2Cj). The Taylor expansion coefficient
-of ![](https://latex.codecogs.com/svg.image?%5Cprod_e%20x_e%5E%7B2j_e%7D) is exactly the Wigner 3nj symbol for the given tree.
+Here $K_{ij}=x_e$ (up to sign) whenever $e$ joins vertices $i,j$. The Taylor expansion coefficient
+of $\prod_e x_e^{2j_e}$ is exactly the Wigner 3nj symbol for the given tree.
 
 ## Examples
-### 6-j Symbols (![](https://latex.codecogs.com/svg.image?n%3D4))
-With two edge variables ![](https://latex.codecogs.com/svg.image?x%2Cy), the generating function becomes
+### 6-j Symbols ($n=4$)
+With two edge variables $x,y$, the generating function becomes
 \begin{equation}
   \boxed{
   G(x,y)
@@ -38,8 +50,8 @@ With two edge variables ![](https://latex.codecogs.com/svg.image?x%2Cy), the gen
   }
 \end{equation}
 
-### 9-j Symbols (![](https://latex.codecogs.com/svg.image?n%3D6))
-For three edges ![](https://latex.codecogs.com/svg.image?x%2Cy%2Cz), one obtains
+### 9-j Symbols ($n=6$)
+For three edges $x,y,z$, one obtains
 \begin{equation}
   \boxed{
   G(x,y,z)
@@ -47,8 +59,8 @@ For three edges ![](https://latex.codecogs.com/svg.image?x%2Cy%2Cz), one obtains
   }
 \end{equation}
 
-### 15-j Symbols (![](https://latex.codecogs.com/svg.image?n%3D8))
-For a chain tree with seven variables ![](https://latex.codecogs.com/svg.image?x_1%2C%5Cdots%2Cx_7),
+### 15-j Symbols ($n=8$)
+For a chain tree with seven variables $x_1,\dots,x_7$,
 \begin{equation}
   \boxed{
   G(x_1,\dots,x_7)
@@ -65,7 +77,7 @@ and quantum gravity applications.
 \section*{References}
 \begin{enumerate}
   \item G.~Szeg\H{o}, *Orthogonal Polynomials*, American Mathematical Society, 1975.
-  \item R.~Koekoek, P.~Lesky, R.~Swarttouw, *Hypergeometric Orthogonal Polynomials and Their ![](https://latex.codecogs.com/svg.image?q)-Analogues*, 2010.
+  \item R.~Koekoek, P.~Lesky, R.~Swarttouw, *Hypergeometric Orthogonal Polynomials and Their $q$-Analogues*, 2010.
   \item H.~Weyl, *The Classical Groups*, Princeton University Press, 1946.
 \end{enumerate}
 
