@@ -1,1 +1,0 @@
-{"task":"Ensure reproducibility of Monte Carlo sampling routines","priority":"Low","python_snippet":"import numpy as np\\nfrom project.monte_carlo import sample_points\\nnp.random.seed(42)\\na = sample_points(1000)\\nnp.random.seed(42)\\nb = sample_points(1000)\\nassert np.array_equal(a, b)"}
