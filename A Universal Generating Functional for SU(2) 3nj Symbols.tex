@@ -129,6 +129,17 @@ We implement the explicit Racah single-sum formula in \texttt{recursion\_3nj} (i
   \texttt{generate\_3nj(1,2,3,4,5,6)} \;=\; \texttt{recursion\_3nj(1,2,3,4,5,6)},
 \end{align*}
 yielding identical \(\sqrt{1430}/2145\).  The test lives in \texttt{scripts/test\_3nj\_recursion.py} and its CSV in \texttt{data/3nj\_recursion\_test.csv}.
+
+\paragraph{Numerical stability of determinant evaluation.}
+To assess floating-point sensitivity of the master formula
+\[
+  G(\{x_e\}) = \frac{1}{\sqrt{\det(I - K(\{x_e\}))}},
+\]
+we compare symbolic vs.\ numeric determinant evaluation over 100 values of $x \in [-0.9, 0.9]$ for a 4-vertex example graph.
+The symbolic matrix is constructed using SymPy exact rationals; its numerical version is obtained via `.evalf()`.
+The absolute error never exceeded $8.88 \times 10^{-16}$, confirming robustness to roundoff near machine epsilon.
+The full output is saved in \texttt{data/uq\_determinant\_stability.csv}.
+
 \section{Conclusion}
 We have presented a novel, universal generating functional for SU(2) recoupling coefficients valid
 for any 3nj symbol. Our determinant formula unifies and extends classical generating functions for
