@@ -7,7 +7,7 @@
 \usepackage{hyperref}
 
 \author{Arcticoder}
-\date{May 24, 2025}
+\date{July 25, 2025}
 
 \pagestyle{fancy}
 \fancyhf{}
@@ -87,15 +87,36 @@ For a chain tree with seven variables $x_1,\dots,x_7$,
 \end{equation}
 
 \section{Verification and Validation}
-\subparagraph{Wigner 6-\(j\) symbol \(\{\tfrac12,\tfrac12,1;\,\tfrac12,\tfrac12,1\}\).}
-We computed this symbol using Sympy’s \texttt{wigner\_6j} routine, applied a phase‐convention flip to match the standard theoretical sign, and verified the value 
-\(
-  \begin{Bmatrix}\tfrac12 & \tfrac12 & 1\\ \tfrac12 & \tfrac12 & 1\end{Bmatrix}
-  = -\tfrac{1}{6}.
-\)
-The full verification script is in \texttt{scripts/test\_wigner\_6j\_symbol.py} and the recorded output in \texttt{data/wigner\_6j\_symbol.csv}.
+\paragraph{Biedenharn--Elliott (pentagon) identity.}
+We verify the full nine-label pentagon (Biedenharn--Elliott) identity numerically:
+\begin{align*}
+  &\sum_{x=\max\{|a-b|,|c-d|,|e-f|\}}^{\min\{a+b,c+d,e+f\}}
+    (-1)^{J+x}(2x+1)
+    \begin{Bmatrix}a & b & x\\ c & d & f\end{Bmatrix}
+    \begin{Bmatrix}c & e & d\\ f & x & q\end{Bmatrix}
+    \begin{Bmatrix}e & b & f\\ a & x & r\end{Bmatrix}
+  \\&=
+    \begin{Bmatrix}p & e & q\\ a & r & d\end{Bmatrix}
+    \begin{Bmatrix}p & f & q\\ b & r & c\end{Bmatrix},
+\end{align*}
+where \(J=a+b+c+d+e+f+p+q+r\).
+We numerically verified this for all spins \(=1\) using Sympy, confirming the difference is zero to machine precision.
+The full verification script is in \texttt{scripts/validate\_biedenharn\_elliott\_identity.py} and the output in \texttt{data/biedenharn\_elliott\_identity.csv}.
 
 \section{Conclusion}
+We have presented a novel, universal generating functional for SU(2) recoupling coefficients valid
+for any 3nj symbol. Our determinant formula unifies and extends classical generating functions for
+6-j and 9-j symbols and offers a promising path for further generalizations in representation theory
+and quantum gravity applications.
+
+\section*{References}
+\begin{enumerate}
+  \item G.~Szeg\H{o}, \emph{Orthogonal Polynomials}, American Mathematical Society, 1975.
+  \item R.~Koekoek, P.~Lesky, R.~Swarttouw, \emph{Hypergeometric Orthogonal Polynomials and Their $q$-Analogues}, 2010.
+  \item H.~Weyl, \emph{The Classical Groups}, Princeton University Press, 1946.
+\end{enumerate}
+
+\end{document}
 We have presented a novel, universal generating functional for SU(2) recoupling coefficients valid
 for any 3nj symbol. Our determinant formula unifies and extends classical generating functions for
 6-j and 9-j symbols and offers a promising path for further generalizations in representation theory
