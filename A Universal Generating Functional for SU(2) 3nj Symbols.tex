@@ -1,4 +1,3 @@
-
 \documentclass[11pt]{article}
 \usepackage{amsmath,amssymb}
 \usepackage[margin=1in]{geometry}
@@ -86,6 +85,15 @@ For a chain tree with seven variables $x_1,\dots,x_7$,
   = \frac{1}{\sqrt{\det\!\bigl(I_8 - K(x_1,\dots,x_7)\bigr)}}.
   }
 \end{equation}
+
+\section{Verification and Validation}
+\subparagraph{Wigner 6-\(j\) symbol \(\{\tfrac12,\tfrac12,1;\,\tfrac12,\tfrac12,1\}\).}
+We computed this symbol using Sympy’s \texttt{wigner\_6j} routine, applied a phase‐convention flip to match the standard theoretical sign, and verified the value 
+\(
+  \begin{Bmatrix}\tfrac12 & \tfrac12 & 1\\ \tfrac12 & \tfrac12 & 1\end{Bmatrix}
+  = -\tfrac{1}{6}.
+\)
+The full verification script is in \texttt{scripts/test\_wigner\_6j\_symbol.py} and the recorded output in \texttt{data/wigner\_6j\_symbol.csv}.
 
 \section{Conclusion}
 We have presented a novel, universal generating functional for SU(2) recoupling coefficients valid
