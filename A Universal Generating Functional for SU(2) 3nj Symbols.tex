@@ -103,6 +103,14 @@ where \(J=a+b+c+d+e+f+p+q+r\).
 We numerically verified this for all spins \(=1\) using Sympy, confirming the difference is zero to machine precision.
 The full verification script is in \texttt{scripts/validate\_biedenharn\_elliott\_identity.py} and the output in \texttt{data/biedenharn\_elliott\_identity.csv}.
 
+\paragraph{3nj generator vs.\ published tables.}
+To anchor our generator against a self-contained “golden” dataset, we pre-compute all valid 6-j symbols for spins $j\in\{0,\tfrac12,1,\tfrac32,2\}$ using \texttt{Sympy} alone and dump them into \texttt{tests/reference\_3nj.json}.  Then
+\begin{verbatim}
+python scripts/test_generate_3nj.py
+\end{verbatim}
+verifies that for each key (comma-separated spin tuple) our \texttt{project.su2\_3nj.generate\_3nj} returns exactly the same rational or algebraic value.  The full test script lives in
+\texttt{scripts/test\_generate\_3nj.py}, the golden JSON in \texttt{tests/reference\_3nj.json}, and the pass/fail CSV in \texttt{data/generate\_3nj\_test\_results.csv}.  All 570 entries up to $j=2$ match with \texttt{match=True}.
+
 \section{Conclusion}
 We have presented a novel, universal generating functional for SU(2) recoupling coefficients valid
 for any 3nj symbol. Our determinant formula unifies and extends classical generating functions for
@@ -117,14 +125,6 @@ and quantum gravity applications.
 \end{enumerate}
 
 \end{document}
-We have presented a novel, universal generating functional for SU(2) recoupling coefficients valid
-for any 3nj symbol. Our determinant formula unifies and extends classical generating functions for
-6-j and 9-j symbols and offers a promising path for further generalizations in representation theory
-and quantum gravity applications.
-
-\section*{References}
-\begin{enumerate}
-  \item G.~Szeg\H{o}, \emph{Orthogonal Polynomials}, American Mathematical Society, 1975.
   \item R.~Koekoek, P.~Lesky, R.~Swarttouw, \emph{Hypergeometric Orthogonal Polynomials and Their $q$-Analogues}, 2010.
   \item H.~Weyl, \emph{The Classical Groups}, Princeton University Press, 1946.
 \end{enumerate}
