@@ -1,0 +1,1 @@
+{"task":"Compute and verify Wigner 6-j symbol values","priority":"High","python_snippet":"import sympy as sp\\nfrom sympy.physics.wigner import wigner_6j\\nresult = wigner_6j(sp.Rational(1,2), sp.Rational(1,2), 1, sp.Rational(1,2), sp.Rational(1,2), 1)\\nassert result == sp.Rational(-1,6), 'Expected -1/6'"}
