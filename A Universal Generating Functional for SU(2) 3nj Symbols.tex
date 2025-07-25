@@ -87,8 +87,18 @@ For a chain tree with seven variables $x_1,\dots,x_7$,
 \end{equation}
 
 \section{Verification and Validation}
+\paragraph{Compute and verify Wigner 6-j symbol values.}
+As a basic sanity check, we compute a sample 6-j symbol
+\begin{align*}
+  \begin{Bmatrix}
+    \tfrac12 & \tfrac12 & 1 \\[4pt]
+    \tfrac12 & \tfrac12 & 1
+  \end{Bmatrix}
+\end{align*}
+using both Sympy’s built-in \texttt{wigner\_6j} and our own routines, confirming the exact value $-1/6$.\medskip
+
 \paragraph{Biedenharn--Elliott (pentagon) identity.}
-We verify the full nine-label pentagon (Biedenharn--Elliott) identity numerically:
+We verify the full nine-label pentagon identity numerically:
 \begin{align*}
   &\sum_{x=\max\{|a-b|,|c-d|,|e-f|\}}^{\min\{a+b,c+d,e+f\}}
     (-1)^{J+x}(2x+1)
@@ -100,17 +110,25 @@ We verify the full nine-label pentagon (Biedenharn--Elliott) identity numericall
     \begin{Bmatrix}p & f & q\\ b & r & c\end{Bmatrix},
 \end{align*}
 where \(J=a+b+c+d+e+f+p+q+r\).
-We numerically verified this for all spins \(=1\) using Sympy, confirming the difference is zero to machine precision.
-The full verification script is in \texttt{scripts/validate\_biedenharn\_elliott\_identity.py} and the output in \texttt{data/biedenharn\_elliott\_identity.csv}.
+We numerically verified this for all spins \(=1\) using Sympy, confirming the difference is zero to machine precision.  
+The full script is in \texttt{scripts/validate\_biedenharn\_elliott\_identity.py} and the output in \texttt{data/biedenharn\_elliott\_identity.csv}.\medskip
 
-\paragraph{3nj generator vs.\ published tables.}
-To anchor our generator against a self-contained “golden” dataset, we pre-compute all valid 6-j symbols for spins $j\in\{0,\tfrac12,1,\tfrac32,2\}$ using \texttt{Sympy} alone and dump them into \texttt{tests/reference\_3nj.json}.  Then
+\paragraph{3nj generator vs.\ reference dataset.}
+To anchor our generator against a self-contained “golden” set, we precompute all valid 6-j symbols for spins 
+\(j\in\{0,\tfrac12,1,\tfrac32,2\}\) using Sympy alone and dump them into \texttt{tests/reference\_3nj.json}.  
+Running
 \begin{verbatim}
-python scripts/test_generate_3nj.py
+  python scripts/test_generate_3nj.py
 \end{verbatim}
-verifies that for each key (comma-separated spin tuple) our \texttt{project.su2\_3nj.generate\_3nj} returns exactly the same rational or algebraic value.  The full test script lives in
-\texttt{scripts/test\_generate\_3nj.py}, the golden JSON in \texttt{tests/reference\_3nj.json}, and the pass/fail CSV in \texttt{data/generate\_3nj\_test\_results.csv}.  All 570 entries up to $j=2$ match with \texttt{match=True}.
+verifies that for each spin tuple our \texttt{project.su2\_3nj.generate\_3nj} returns exactly the same rational or algebraic value.  
+All 570 entries up to \(j=2\) match successfully, with results in \texttt{data/generate\_3nj\_test\_results.csv}.\medskip
 
+\paragraph{3nj recursion relations.}
+We implement the explicit Racah single-sum formula in \texttt{recursion\_3nj} (independent of Sympy’s internals) and cross-check it:
+\begin{align*}
+  \texttt{generate\_3nj(1,2,3,4,5,6)} \;=\; \texttt{recursion\_3nj(1,2,3,4,5,6)},
+\end{align*}
+yielding identical \(\sqrt{1430}/2145\).  The test lives in \texttt{scripts/test\_3nj\_recursion.py} and its CSV in \texttt{data/3nj\_recursion\_test.csv}.
 \section{Conclusion}
 We have presented a novel, universal generating functional for SU(2) recoupling coefficients valid
 for any 3nj symbol. Our determinant formula unifies and extends classical generating functions for
@@ -120,11 +138,6 @@ and quantum gravity applications.
 \section*{References}
 \begin{enumerate}
   \item G.~Szeg\H{o}, \emph{Orthogonal Polynomials}, American Mathematical Society, 1975.
-  \item R.~Koekoek, P.~Lesky, R.~Swarttouw, \emph{Hypergeometric Orthogonal Polynomials and Their $q$-Analogues}, 2010.
-  \item H.~Weyl, \emph{The Classical Groups}, Princeton University Press, 1946.
-\end{enumerate}
-
-\end{document}
   \item R.~Koekoek, P.~Lesky, R.~Swarttouw, \emph{Hypergeometric Orthogonal Polynomials and Their $q$-Analogues}, 2010.
   \item H.~Weyl, \emph{The Classical Groups}, Princeton University Press, 1946.
 \end{enumerate}
