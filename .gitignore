@@ -1,21 +1,7 @@
-# LaTeX intermediate files
-*.aux
-*.log
-*.out
-*.synctex.gz
-*.toc
-*.lof
-*.lot
-*.fls
-*.fdb_latexmk
-*.bbl
-*.blg
-
-# Jekyll site
-_site/
-.sass-cache/
-.jekyll-cache/
-.jekyll-metadata
+# setuptools / pip build artifacts
+*.egg-info/
+build/
+dist/
 
 # Editor files
 .vscode/
@@ -31,7 +17,7 @@ _site/
 ehthumbs.db
 Thumbs.db
 
-.github/instructions/copilot-instructions.md
-
-.github/
+# Python caches
+__pycache__/
+*.py[cod]
 **/*.pyc

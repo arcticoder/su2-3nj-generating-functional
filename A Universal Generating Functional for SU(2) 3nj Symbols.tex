@@ -100,8 +100,7 @@ We verify the full nine-label pentagon identity numerically:
     \begin{Bmatrix}p & f & q\\ b & r & c\end{Bmatrix},
 \end{align*}
 where \(J=a+b+c+d+e+f+p+q+r\).
-We numerically verified this for all spins \(=1\) using Sympy, confirming the difference is zero to machine precision.  
-The full script is in \texttt{scripts/validate\_biedenharn\_elliott\_identity.py} and the output in \texttt{data/biedenharn\_elliott\_identity.csv}.\medskip
+The Biedenharn–Elliott (pentagon) identity is now verified automatically in CI via GitHub Actions (see \texttt{.github/workflows/pentagon-identity.yml}), ensuring that any change to the generating functional or test code triggers a fresh symbolic check.\medskip
 
 \paragraph{3nj generator vs.\ reference dataset.}
 To anchor our generator against a self-contained “golden” set, we precompute all valid 6-j symbols for spins 
@@ -159,6 +158,7 @@ and quantum gravity applications.
   \item H.~Weyl, \emph{The Classical Groups}, Princeton University Press, 1946.
 \end{enumerate}
 
+\end{document}
 \end{document}
 and quantum gravity applications.
 

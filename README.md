@@ -48,6 +48,7 @@ This repository includes Python scripts that calculate and verify the mathematic
 - [`uq_determinant_stability.py`](scripts/uq_determinant_stability.py): Quantify numerical error in determinant evaluation of \(G(\{x_e\})\).
 - [`uq_3nj_sensitivity.py`](scripts/uq_3nj_sensitivity.py): Local sensitivity analysis of the 6-j symbol under small spin perturbations.
 - [`uq_compare_rational_vs_numeric.py`](scripts/uq_compare_rational_vs_numeric.py): Compare symbolic vs numeric evaluations of \(G(\{x_e\})\) for benchmark inputs.
+- **CI workflow**: The Biedenharn–Elliott (pentagon) identity is verified automatically via GitHub Actions, as defined in `.github/workflows/pentagon-identity.yml`.
 
 ## Data and Results
 
