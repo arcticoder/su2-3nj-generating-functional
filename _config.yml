@@ -1,9 +1,0 @@
-title: A Universal Generating Functional for SU(2) 3nj Symbols
-author: Arcticoder
-description: A unified approach to SU(2) 3nj symbols using a master generating functional
-theme: jekyll-theme-cayman
-markdown: kramdown
-kramdown:
-  math_engine: mathjax
-plugins:
-  - jekyll-sitemap
