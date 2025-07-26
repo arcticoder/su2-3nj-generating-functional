@@ -87,16 +87,6 @@ For a chain tree with seven variables $x_1,\dots,x_7$,
 \end{equation}
 
 \section{Verification and Validation}
-\paragraph{Compute and verify Wigner 6-j symbol values.}
-As a basic sanity check, we compute a sample 6-j symbol
-\begin{align*}
-  \begin{Bmatrix}
-    \tfrac12 & \tfrac12 & 1 \\[4pt]
-    \tfrac12 & \tfrac12 & 1
-  \end{Bmatrix}
-\end{align*}
-using both Sympy’s built-in \texttt{wigner\_6j} and our own routines, confirming the exact value $-1/6$.\medskip
-
 \paragraph{Biedenharn--Elliott (pentagon) identity.}
 We verify the full nine-label pentagon identity numerically:
 \begin{align*}
@@ -160,6 +150,16 @@ well within double-precision machine epsilon. Results are in
 We have presented a novel, universal generating functional for SU(2) recoupling coefficients valid
 for any 3nj symbol. Our determinant formula unifies and extends classical generating functions for
 6-j and 9-j symbols and offers a promising path for further generalizations in representation theory
+and quantum gravity applications.
+
+\section*{References}
+\begin{enumerate}
+  \item G.~Szeg\H{o}, \emph{Orthogonal Polynomials}, American Mathematical Society, 1975.
+  \item R.~Koekoek, P.~Lesky, R.~Swarttouw, \emph{Hypergeometric Orthogonal Polynomials and Their $q$-Analogues}, 2010.
+  \item H.~Weyl, \emph{The Classical Groups}, Princeton University Press, 1946.
+\end{enumerate}
+
+\end{document}
 and quantum gravity applications.
 
 \section*{References}

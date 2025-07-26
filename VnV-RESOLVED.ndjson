@@ -1,4 +1,3 @@
-{"task":"Compute and verify Wigner 6-j symbol values","priority":"High"}
 {"task":"Validate Biedenharn–Elliott identity numerically","priority":"High"}
 {"task":"Test SU(2) 3nj generating functional against reference data","priority":"High"}
 {"task":"Cross-check 3nj symbol recursion relations via symbolic computation","priority":"Medium"}
