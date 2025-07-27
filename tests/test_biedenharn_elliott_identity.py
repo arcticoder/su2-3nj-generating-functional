@@ -30,11 +30,13 @@ def test_pentagon_identity_via_G(spins):
                 .coeff(y, 2*j6)
                 .simplify())
 
-    # build LHS of the pentagon sum
+    # build LHS of the pentagon sum, printing each contribution
     x_min = max(abs(a-b), abs(c-d), abs(e-f))
     x_max = min(a+b,     c+d,     e+f)
     J = a+b+c+d+e+f+p+q+r
     lhs = sp.Rational(0)
+    print(f"\n=== Pentagon Identity Test for spins {spins} ===")
+    print(f"J={J}, x from {x_min} to {x_max}")
     for x in range(x_min, x_max+1):
         xr = sp.Rational(x)
         phase = (-1)**(J + xr)
@@ -43,13 +45,14 @@ def test_pentagon_identity_via_G(spins):
           * six_j(c, e, d, f, xr, q)
           * six_j(e, b, f, a, xr, r)
         )
-        lhs += phase * (2*xr + 1) * term
+        contribution = phase * (2*xr + 1) * term
+        print(f" x={x}: phase={phase}, weight={2*xr+1}, term={term}, contrib={contribution}")
+        lhs += contribution
 
-    # RHS is just the product of two 6-j’s
-    rhs = (
-        six_j(p, e, q, a, r, d)
-      * six_j(p, f, q, b, r, c)
-    )
-
-    # pytest will report “1 passed” and will highlight failures automatically
-    assert sp.simplify(lhs - rhs) == 0, "Pentagon identity via G_exact() broke"
+    # RHS and final check
+    rhs = six_j(p, e, q, a, r, d) * six_j(p, f, q, b, r, c)
+    print(f"Final LHS = {lhs}")
+    print(f"       RHS = {rhs}")
+    diff = sp.simplify(lhs - rhs)
+    print(f"Difference LHS - RHS = {diff}\n")
+    assert diff == 0, "Pentagon identity via G_exact() broke"
